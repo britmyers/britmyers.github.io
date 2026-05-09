@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brit Myers, MS, MMA, PMP — Environmental Systems Consultant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --slate:    #1e2d35;
+    --slate-md: #2e4150;
+    --slate-lt: #3d5668;
+    --teal:     #3a7d6e;
+    --teal-lt:  #5a9e8e;
+    --teal-xlt: #a8cfc8;
+    --foam:     #ddeee9;
+    --stone:    #c8bfaf;
+    --stone-lt: #efe9e0;
+    --cream:    #f7f4ef;
+    --ink:      #1a2228;
+    --muted:    #5a6b75;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans:  'Lato', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 17px;
+    font-weight: 300;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.25rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(247,244,239,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(200,191,175,0.4);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    color: var(--slate);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--slate);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-texture {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 80%, rgba(58,125,110,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 20%, rgba(90,158,142,0.12) 0%, transparent 50%);
+  }
+  .hero-lines {
+    position: absolute; inset: 0; opacity: 0.06;
+    background-image: repeating-linear-gradient(
+      -20deg,
+      transparent,
+      transparent 48px,
+      rgba(168,207,200,0.8) 48px,
+      rgba(168,207,200,0.8) 49px
+    );
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 8rem 4rem 6rem;
+    position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-lt);
+    margin-bottom: 2rem;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 2rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--teal-xlt);
+  }
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(238,233,224,0.65);
+    max-width: 420px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+  .hero-cta {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    border: 1px solid var(--teal-lt);
+    color: var(--teal-xlt);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.25s;
+    align-self: flex-start;
+  }
+  .hero-cta:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--cream);
+  }
+  .hero-right {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 5rem 6rem 3rem;
+    position: relative; z-index: 2;
+    border-left: 1px solid rgba(168,207,200,0.15);
+  }
+  .hero-stat-block { margin-bottom: 3.5rem; }
+  .hero-stat {
+    font-family: var(--serif);
+    font-size: 3rem;
+    color: var(--teal-xlt);
+    font-weight: 400;
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: rgba(238,233,224,0.5);
+    margin-top: 0.4rem;
+    font-weight: 400;
+  }
+  .hero-divider {
+    width: 40px; height: 1px;
+    background: rgba(168,207,200,0.3);
+    margin: 2.5rem 0;
+  }
+  .hero-location {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(238,233,224,0.4);
+  }
+  .hero-photo-wrap { margin-bottom: 3rem; }
+  .hero-photo {
+    width: 160px; height: 160px;
+    object-fit: cover; object-position: center top;
+    border-radius: 50%;
+    border: 2px solid rgba(168,207,200,0.3);
+    display: block;
+  }
+
+  /* SECTION BASICS */
+  section { padding: 7rem 4rem; }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1.2rem;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--slate);
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--teal); }
+  .section-body {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 620px;
+    line-height: 1.85;
+    font-weight: 300;
+  }
+
+  /* ABOUT */
+  .about {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .about-left { padding-top: 1rem; }
+  .about-pull {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--slate-md);
+    line-height: 1.6;
+    border-left: 3px solid var(--teal);
+    padding-left: 1.8rem;
+    margin: 2.5rem 0;
+  }
+  .about-right { padding-top: 5rem; }
+  .credential-list { list-style: none; }
+  .credential-list li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(200,191,175,0.5);
+    display: flex; align-items: baseline; gap: 0.8rem;
+    font-weight: 300;
+  }
+  .credential-list li::before {
+    content: '—';
+    color: var(--teal);
+    flex-shrink: 0;
+    font-size: 0.8rem;
+  }
+
+  /* SERVICES */
+  .services { background: var(--slate); }
+  .services .section-title { color: var(--cream); }
+  .services .section-label { color: var(--teal-lt); }
+  .services .section-body { color: rgba(238,233,224,0.6); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+    border: 1px solid rgba(168,207,200,0.15);
+  }
+  .service-card {
+    padding: 2.5rem;
+    border-right: 1px solid rgba(168,207,200,0.12);
+    border-bottom: 1px solid rgba(168,207,200,0.12);
+    transition: background 0.25s;
+  }
+  .service-card:hover { background: rgba(58,125,110,0.08); }
+  .service-card:nth-child(3n) { border-right: none; }
+  .service-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: rgba(168,207,200,0.25);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+  .service-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .service-body {
+    font-size: 0.88rem;
+    color: rgba(238,233,224,0.5);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  .service-tags {
+    margin-top: 1.5rem;
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .service-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid rgba(168,207,200,0.25);
+    color: var(--teal-xlt);
+    border-radius: 0;
+  }
+
+  /* DIFFERENTIATORS */
+  .differentiators {
+    background: var(--stone-lt);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .diff-left { position: sticky; top: 8rem; }
+  .diff-right { }
+  .diff-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(200,191,175,0.6);
+  }
+  .diff-item:last-child { border-bottom: none; }
+  .diff-letter {
+    font-family: var(--serif);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .diff-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--slate);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  .diff-body {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* HOW WE WORK */
+  .how {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .offer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .offer-card {
+    background: white;
+    border: 1px solid rgba(200,191,175,0.5);
+    padding: 1.8rem;
+  }
+  .offer-type {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+  .offer-title {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--slate);
+    margin-bottom: 0.6rem;
+  }
+  .offer-body {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .how-right { padding-top: 4rem; }
+  .client-type-list { margin-top: 2rem; }
+  .client-type {
+    display: flex; align-items: baseline; gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(200,191,175,0.4);
+    font-size: 0.92rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .client-dot {
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative; top: -1px;
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--teal);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .contact .section-title { color: var(--cream); }
+  .contact .section-label { color: rgba(238,233,224,0.6); }
+  .contact .section-body { color: rgba(238,233,224,0.75); max-width: 440px; }
+  .contact-right { }
+  .contact-detail {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(238,233,224,0.2);
+  }
+  .contact-detail:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .contact-detail-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(238,233,224,0.5);
+    margin-bottom: 0.4rem;
+  }
+  .contact-detail-value {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--cream);
+  }
+  .contact-detail-note {
+    font-size: 0.82rem;
+    color: rgba(238,233,224,0.55);
+    margin-top: 0.25rem;
+    font-weight: 300;
+  }
+  .contact-email-link {
+    display: inline-block;
+    margin-top: 2.5rem;
+    padding: 0.9rem 2.4rem;
+    background: var(--cream);
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .contact-email-link:hover {
+    background: var(--slate);
+    color: var(--cream);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--slate);
+    padding: 2.5rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(168,207,200,0.1);
+  }
+  .footer-name {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: rgba(238,233,224,0.5);
+  }
+  .footer-note {
+    font-size: 0.78rem;
+    color: rgba(238,233,224,0.3);
+    letter-spacing: 0.05em;
+    font-weight: 300;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.7s ease both 0.2s; }
+  .hero-title   { animation: fadeUp 0.7s ease both 0.4s; }
+  .hero-sub     { animation: fadeUp 0.7s ease both 0.6s; }
+  .hero-cta     { animation: fadeUp 0.7s ease both 0.8s; }
+  .hero-right   { animation: fadeUp 0.8s ease both 0.5s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { gap: 1.5rem; }
+    section { padding: 5rem 2rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 10rem 2rem 3rem; }
+    .hero-right { padding: 2rem 2rem 4rem; border-left: none; border-top: 1px solid rgba(168,207,200,0.15); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+    .hero-divider { display: none; }
+    .hero-stat-block { margin-bottom: 0; }
+    .hero-location { grid-column: 1 / -1; margin-top: 1.5rem; }
+    .about { grid-template-columns: 1fr; gap: 3rem; }
+    .about-right { padding-top: 0; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; }
+    .service-card:nth-child(3n) { border-right: none; }
+    .differentiators { grid-template-columns: 1fr; gap: 0; }
+    .diff-left { position: static; }
+    .how { grid-template-columns: 1fr; }
+    .contact { grid-template-columns: 1fr; gap: 3rem; }
+    .offer-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Brit Myers</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Practice</a></li>
+    <li><a href="#differentiators">Approach</a></li>
+    <li><a href="#how">Work Together</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-texture"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Brit Myers, MS, MMA, PMP &nbsp;·&nbsp; Environmental Systems Consultant &nbsp;·&nbsp; Vashon Island, WA</p>
+    <h1 class="hero-title">
+      Building the infrastructure<br>
+      that makes <em>complex,<br>
+      distributed work</em><br>
+      actually function.
+    </h1>
+    <p class="hero-sub">
+      I work with research programs, environmental organizations, and mission-driven institutions to design coordination systems, sustain scientific networks, and provide the operational continuity that keeps critical work moving.
+    </p>
+    <a href="#contact" class="hero-cta">Start a conversation</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <img src="brit.jpeg" alt="Brit — environmental systems consultant, photographed outdoors in an Arctic winter setting" class="hero-photo">
+    </div>
+    <div class="hero-stat-block">
+      <div class="hero-stat">$15.2M</div>
+      <div class="hero-stat-label">NSF cooperative agreements managed as PI and PM</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat-block">
+      <div class="hero-stat">30+</div>
+      <div class="hero-stat-label">Institutional members in the ARCUS research consortium</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat-block">
+      <div class="hero-stat">2</div>
+      <div class="hero-stat-label">Globally recognized scientific synthesis networks coordinated</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-location">Puget Sound · Pacific Northwest · Remote</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left">
+    <p class="section-label">About</p>
+    <h2 class="section-title">Systems-oriented.<br><em>Ecologically grounded.</em></h2>
+    <p class="section-body">
+      My practice sits at a rare intersection: I have operated inside federal research funding architecture at significant scale, coordinated globally recognized scientific networks, contributed to environmental policy and governance, built philanthropic and grants infrastructure, and designed AI-enabled operational systems — not as adjacent skills accumulated across a career, but as an integrated way of working.
+    </p>
+    <blockquote class="about-pull">
+      "I work at the interface points between systems — where science meets policy, where funding meets operations, where institutional knowledge meets the next phase of work."
+    </blockquote>
+    <p class="section-body">
+      I'm based on Vashon Island in Puget Sound, embedded in the Pacific Northwest environmental and research community. I bring that embeddedness — relationships, local knowledge, regional credibility — alongside national and international program experience to every engagement.
+    </p>
+  </div>
+  <div class="about-right">
+    <p class="section-label">Credentials</p>
+    <ul class="credential-list">
+      <li>Master of Marine & Environmental Affairs, University of Washington</li>
+      <li>Master of Arts in Arts & Administration, University of Oregon</li>
+      <li>PMP-Certified Project Management Professional</li>
+      <li>Community Engagement Fellow, CSCCE (orig. AAAS)</li>
+      <li>Nonprofit Management Certificate</li>
+      <li>FLAS Fellowship, French & Canadian Studies</li>
+      <li>Arctic Research Fellowship (graduate)</li>
+      <li>Scientific Diving Training, Friday Harbor Laboratories</li>
+      <li>6+ years Seattle Aquarium Beach Naturalist</li>
+      <li>Bachelor of Fine Arts, University of Idaho</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="section-label">Practice Areas</p>
+  <h2 class="section-title">What I do</h2>
+  <p class="section-body">
+    Six practice areas — each grounded in direct, accountable experience, not adjacent familiarity.
+  </p>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3 class="service-title">Federal Research Systems & Scientific Program Operations</h3>
+      <p class="service-body">I have operated inside NSF funding architecture — not alongside it — as PI on a $9.2M cooperative agreement and full lifecycle PM of a $6M multi-institutional grant. I understand how program officers think, how reporting works, and how to keep complex research programs moving.</p>
+      <div class="service-tags">
+        <span class="service-tag">NSF / NASA / NOAA</span>
+        <span class="service-tag">Award stewardship</span>
+        <span class="service-tag">Compliance</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3 class="service-title">Scientific Network Architecture & Coordination</h3>
+      <p class="service-body">Operational architect — not staff support — for the Sea Ice Prediction Network and Permafrost Carbon Network. I build and sustain the coordination infrastructure that keeps distributed scientific communities functioning across institutions, time zones, and funding cycles.</p>
+      <div class="service-tags">
+        <span class="service-tag">Synthesis networks</span>
+        <span class="service-tag">Open science</span>
+        <span class="service-tag">Consortium design</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3 class="service-title">Program Operations & Institutional Continuity</h3>
+      <p class="service-body">Organizations lose critical momentum during transitions — leadership turnover, grant close-out, maternity leave, reorganization. I provide the senior operational presence that stabilizes these moments: reading an organization quickly, holding what needs to be held, and restoring systems that enable continuity.</p>
+      <div class="service-tags">
+        <span class="service-tag">Interim leadership</span>
+        <span class="service-tag">Fractional PM</span>
+        <span class="service-tag">Systems design</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <h3 class="service-title">Stakeholder Engagement & Strategic Convening</h3>
+      <p class="service-body">My credibility as a convener rests on understanding the underlying science, policy, and institutional dynamics — not just logistics. I've facilitated across tribal interfaces, federal interagency networks, multi-sector environmental governance, and international research communities.</p>
+      <div class="service-tags">
+        <span class="service-tag">Workshop design</span>
+        <span class="service-tag">Coalition building</span>
+        <span class="service-tag">Facilitation</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <h3 class="service-title">Communications & Grant Strategy</h3>
+      <p class="service-body">Strategy and systems for the mission-driven, science, and environmental lane — not general marketing. I understand the underlying work, not just the messaging. Grant development, narrative strategy, research translation, and the systems that make communications sustainable.</p>
+      <div class="service-tags">
+        <span class="service-tag">Grant strategy</span>
+        <span class="service-tag">Research translation</span>
+        <span class="service-tag">Narrative</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <h3 class="service-title">AI-Enabled Organizational Systems</h3>
+      <p class="service-body">Practical AI integration for lean mission-driven teams — not transformation consulting. Built and deployed in a real operating context. Workflow automation, knowledge management, meeting systems, communications infrastructure, and documentation generation.</p>
+      <div class="service-tags">
+        <span class="service-tag">Workflow automation</span>
+        <span class="service-tag">Knowledge systems</span>
+        <span class="service-tag">Lean teams</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section class="differentiators" id="differentiators">
+  <div class="diff-left">
+    <p class="section-label">What sets this apart</p>
+    <h2 class="section-title">Genuine<br><em>differentiation</em></h2>
+    <p class="section-body">
+      These aren't credentials accumulated in parallel — they're capability combinations that took years to build and are genuinely difficult to replicate.
+    </p>
+  </div>
+  <div class="diff-right">
+
+    <div class="diff-item">
+      <div class="diff-letter">A</div>
+      <h3 class="diff-title">Federal science funding fluency at scale</h3>
+      <p class="diff-body">PI on a $9.2M NSF Cooperative Agreement and full lifecycle management of a 5-year, $6M multi-institutional NSF grant — simultaneously. Including NSF desk audit participation. This opens doors to clients who need someone who has operated inside the federal science funding system, not alongside it.</p>
+    </div>
+
+    <div class="diff-item">
+      <div class="diff-letter">B</div>
+      <h3 class="diff-title">Global synthesis network experience</h3>
+      <p class="diff-body">Operational architect — not staff support — of the Sea Ice Prediction Network and Permafrost Carbon Network. Internationally recognized programs coordinating distributed observational and modeling communities. Essentially non-replicable without direct program history.</p>
+    </div>
+
+    <div class="diff-item">
+      <div class="diff-letter">C</div>
+      <h3 class="diff-title">Pacific Northwest ecological embeddedness</h3>
+      <p class="diff-body">Washington Marine Spatial Planning facilitation, oil spill legislation engagement, NOAA California Current ecosystem work, Puget Sound Seabird Survey, 6+ years Seattle Aquarium Beach Naturalist, and co-leadership of a watershed-embedded business on Vashon Island. For Pacific Northwest institutions, this is relationship capital — not just a resume line.</p>
+    </div>
+
+    <div class="diff-item">
+      <div class="diff-letter">D</div>
+      <h3 class="diff-title">Multi-system translator</h3>
+      <p class="diff-body">Accountable leadership across science, philanthropy, policy, governance, nonprofit, and applied commerce — not as a generalist moving through sectors, but as someone who has held real accountability in each. The rarest combination, and the hardest to replicate.</p>
+    </div>
+
+    <div class="diff-item">
+      <div class="diff-letter">E</div>
+      <h3 class="diff-title">Arts administration crossover</h3>
+      <p class="diff-body">MA in Arts & Administration, Engagement Manager for the Microsoft Art Collection, Development Manager for Intiman Theatre. An unusual fluency in narrative, community engagement, and institutional culture that most environmental systems leaders lack entirely — and that makes for a stronger convener across diverse stakeholder communities.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="how" id="how">
+  <div class="how-left">
+    <p class="section-label">Working together</p>
+    <h2 class="section-title">How to<br><em>engage</em></h2>
+    <p class="section-body">
+      Engagements take four shapes — each suited to a different kind of need. The best relationships often begin with a defined project and evolve into something more sustained.
+    </p>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-type">Retainer</div>
+        <div class="offer-title">Ongoing fractional support</div>
+        <p class="offer-body">8–20 hours/month. Strategic, operational, or communications presence without a full hire.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-type">Interim Contract</div>
+        <div class="offer-title">Defined-term coverage</div>
+        <p class="offer-body">3–12 months. Leadership transitions, grant cycles, specific program milestones.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-type">Project-Based</div>
+        <div class="offer-title">Scoped deliverables</div>
+        <p class="offer-body">Convening design, grant strategy, CRM build, engagement plan, communications system.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-type">Embedded Fractional</div>
+        <div class="offer-title">Inside your team</div>
+        <p class="offer-body">Fractional Program Manager, Engagement Director, or Operations Lead within your structure.</p>
+      </div>
+    </div>
+  </div>
+  <div class="how-right">
+    <p class="section-label">Strongest fit</p>
+    <h3 class="section-title" style="font-size: 1.6rem;">Organizations I work<br><em>best with</em></h3>
+    <p class="section-body" style="font-size: 0.92rem;">
+      I'm most useful when brought in early enough to shape systems, not just execute within them.
+    </p>
+    <div class="client-type-list">
+      <div class="client-type"><span class="client-dot"></span>Arctic, climate, and environmental science programs</div>
+      <div class="client-type"><span class="client-dot"></span>Open science and research infrastructure initiatives</div>
+      <div class="client-type"><span class="client-dot"></span>Pacific Northwest environmental governance and conservation</div>
+      <div class="client-type"><span class="client-dot"></span>Philanthropy funding science, resilience, or environmental work</div>
+      <div class="client-type"><span class="client-dot"></span>Tribal and community-based environmental programs</div>
+      <div class="client-type"><span class="client-dot"></span>Cross-sector research and policy collaboratives</div>
+      <div class="client-type"><span class="client-dot"></span>Mission-driven nonprofits navigating growth or transition</div>
+      <div class="client-type"><span class="client-dot"></span>Universities with distributed or consortium research programs</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left">
+    <p class="section-label">Get in touch</p>
+    <h2 class="section-title">Let's talk about<br><em>what you're building.</em></h2>
+    <p class="section-body">
+      The best engagements start with a real conversation about the coordination or systems problem you're trying to solve. I'm happy to talk through whether and how I might be useful before any commitment.
+    </p>
+    <a href="mailto:hello@example.com" class="contact-email-link">Send a note</a>
+  </div>
+  <div class="contact-right">
+    <div class="contact-detail">
+      <div class="contact-detail-label">Location</div>
+      <div class="contact-detail-value">Vashon Island, Washington</div>
+      <div class="contact-detail-note">Puget Sound — Seattle hybrid viable 2–3 days/week</div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-label">Availability</div>
+      <div class="contact-detail-value">Fully remote preferred</div>
+      <div class="contact-detail-note">Domestic and international travel available as needed</div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-label">Engagement types</div>
+      <div class="contact-detail-value">Retainer · Interim · Project · Fractional</div>
+      <div class="contact-detail-note">Typically 3-month minimum for retainer and interim work</div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-label">Sector focus</div>
+      <div class="contact-detail-value">Research · Environmental · Philanthropy · Science</div>
+      <div class="contact-detail-note">Mission-driven organizations working in public interest</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Brit Myers, MS, MMA, PMP &nbsp;·&nbsp; Environmental Systems Consultant</div>
+  <div class="footer-note">Vashon Island · Puget Sound · Pacific Northwest</div>
+</footer>
+
+</body>
+</html>
